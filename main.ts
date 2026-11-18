@@ -16,6 +16,9 @@ const LEVELS: number[] = [0.05, 0.25, 0.5, 0.75, 0.95];
 // tau = 0.95 -> z = 1.645
 const Z: number[] = [-1.645, -0.674, 0, 0.674, 1.645];
 
+// Widens the p16-p84 gap to an honest 90% band (the raw gap covered only ~0.65 on the practice)
+const SPREAD_MULT = 1.76;
+
 interface HourlyPoint {
   from: string;
   viewers: number;
@@ -201,10 +204,10 @@ function forecastCase(caseData: CaseFile): CaseOutput {
     } else {
       // Median (0.5 quantile by linear interpolation)
       center = quantile(logRatios, 0.5);
-      // Half of the p16-to-p84 inter-quantile range, floored at 0.2
+      // Half of the p16-to-p84 inter-quantile range scaled by SPREAD_MULT, floored at 0.2
       const p16 = quantile(logRatios, 0.16);
       const p84 = quantile(logRatios, 0.84);
-      spread = Math.max(0.2, (p84 - p16) / 2);
+      spread = Math.max(0.2, ((p84 - p16) / 2) * SPREAD_MULT);
     }
 
     // Compute quantile values for each level

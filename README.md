@@ -31,8 +31,9 @@ log space, not its absolute size.
    than 8 clear the floor, every usable comparable is used instead.
 
 3. For each hour 2..24, the log-ratios `ln(viewers_h / viewers_1)` across the pool give the center
-   (their median) and the spread (half the p16-to-p84 gap, floored at 0.2 so the band is never razor
-   thin).
+   (their median) and the spread: half the p16-to-p84 gap is scaled by 1.76 to widen the band to an
+   honest 90% coverage (the raw gap covered only ~0.65 on the practice), floored at 0.2 so the band is
+   never razor thin.
 
 4. The forecast is `q_tau = p1 · exp(center + z_tau · spread)` at the five levels, with `z_tau` the
    standard normal quantile and `p1` the case's own hour-1 count (a count below 1 counts as 1).
