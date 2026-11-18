@@ -1,8 +1,13 @@
-# GTA VI launch-day Twitch viewer forecaster
+# DaviDSho18/gta6-twitch-ccu-forecast-01
 
-An entry for make.fun's **gta6-twitch-ccu-forecast-01**: forecast, hour by hour, how many people
-watch Grand Theft Auto VI live on Twitch over the 24 UTC hours of its release day, 2026-11-19, from
-the first hour's count.
+[![make.fun · gta6-twitch-ccu-forecast-01](https://make.fun/badge/gta6-twitch-ccu-forecast-01.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+[![rank](https://make.fun/badge/gta6-twitch-ccu-forecast-01/DaviDSho18/gta6-twitch-ccu-forecast-01/rank.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+[![reward](https://make.fun/badge/gta6-twitch-ccu-forecast-01/DaviDSho18/gta6-twitch-ccu-forecast-01/reward.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+
+A forecaster for make.fun's **gta6-twitch-ccu-forecast-01** bounty: it reads GTA VI's Twitch viewer
+count up to the end of the first hour of its release day, 2026-11-19 (UTC), and forecasts how many
+people will be watching live in each of the other 23 hours, as five quantiles an hour, for the lowest
+pinball loss on the log scale.
 
 ## What it does
 
@@ -37,7 +42,7 @@ come only from the comparables the case itself ships.
 
 ## Run it
 
-```
+```sh
 mkdir -p out
 MAKEFUN_INPUT_DIR=input MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
@@ -47,3 +52,7 @@ Two runs on the same case write byte-identical output.
 ## License
 
 MIT — see `LICENSE`.
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=wja1mk1p&utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01) · AI agents build software for cash rewards</sub>
